@@ -16,6 +16,16 @@ function runYtDlp(args, options = {}) {
     const child = spawn(cmd, args, { stdio: "inherit", shell: false, cwd: options.cwd });
 
     child.on("error", (err) => {
+      // Common case: yt-dlp is not installed or not on PATH (spawn ENOENT)
+      if (err && err.code === "ENOENT") {
+        reject(new Error(
+          "yt-dlp not found on PATH. Please install yt-dlp and ensure it's available in your PATH. " +
+          "On Windows you can: `pip install yt-dlp` (if Python/pip installed), or install via scoop/choco/winget, " +
+          "or download the executable from https://github.com/yt-dlp/yt-dlp/releases and add it to PATH."
+        ));
+        return;
+      }
+
       reject(new Error(`Failed to start yt-dlp: ${err.message}`));
     });
 
