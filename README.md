@@ -30,7 +30,55 @@ npm install ytsave
 
 ---
 
-## 💻 CLI Usage
+## � Install yt-dlp & ffmpeg
+
+ytsave relies on the external tool `yt-dlp` to download media and (optionally) `ffmpeg` to merge separate video/audio streams. Install them on your system and ensure they're available on your PATH before running the CLI.
+
+Windows
+- Using pip (if Python is installed):
+  ```powershell
+  pip install yt-dlp
+  ```
+- Using Scoop:
+  ```powershell
+  scoop install yt-dlp
+  ```
+- Using Chocolatey:
+  ```powershell
+  choco install yt-dlp
+  ```
+- Or download the `yt-dlp.exe` from the releases page and add it to your PATH:
+  https://github.com/yt-dlp/yt-dlp/releases
+
+macOS
+- Using Homebrew:
+  ```bash
+  brew install yt-dlp
+  ```
+
+Linux
+- Using pip:
+  ```bash
+  pip3 install --user yt-dlp
+  ```
+- Using your distro package manager (if available) or download the binary from the releases page.
+
+ffmpeg (optional but recommended)
+- ffmpeg is required if yt-dlp needs to merge separate video and audio streams (this happens when selecting the best video and best audio). Install ffmpeg via your platform package manager:
+  - Windows (scoop/choco) — `scoop install ffmpeg` or `choco install ffmpeg`
+  - macOS (Homebrew) — `brew install ffmpeg`
+  - Linux (apt/yum/pacman) — `sudo apt install ffmpeg` or equivalent
+
+After installing, verify both commands are available:
+
+```bash
+yt-dlp --version
+ffmpeg -version
+```
+
+---
+
+## �💻 CLI Usage
 
 ### Download a single video
 
