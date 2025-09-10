@@ -1,10 +1,14 @@
 
+<p align="right">
+<a href="https://www.npmjs.com/package/ytsave"><img src="https://nodei.co/npm/ytsave.svg?data=d"></a>
+</p>
+
 # ytsave
 
 A simple and powerful Node.js tool to download YouTube **videos** and **playlists** with ease.  
 Works both as a **CLI tool** and as a **library**. 🎥🎶  
 
----
+&nbsp;
 
 ## ✨ Features
 - 📥 Download single YouTube videos  
@@ -13,7 +17,7 @@ Works both as a **CLI tool** and as a **library**. 🎥🎶
 - ⚡ Fast & reliable (powered by `yt-dlp`)  
 - 🛠 Usable both as a **CLI** and as a **library**  
 
----
+&nbsp;
 
 ## 🚀 Installation
 
@@ -28,9 +32,9 @@ npm install -g ytsave
 npm install ytsave
 ```
 
----
+&nbsp;
 
-## � Install yt-dlp & ffmpeg
+## 📥 Install yt-dlp & ffmpeg
 
 ytsave relies on the external tool `yt-dlp` to download media and (optionally) `ffmpeg` to merge separate video/audio streams. Install them on your system and ensure they're available on your PATH before running the CLI.
 
@@ -75,21 +79,28 @@ After installing, verify both commands are available:
 yt-dlp --version
 ffmpeg -version
 ```
+&nbsp;
 
----
+## 💻 CLI Usage
 
-## �💻 CLI Usage
+### Download a single video or playlist
 
-### Download a single video
-
+#### No Parameters (default)
 ```bash
-ytsave "https://www.youtube.com/watch?v=dQw4w9WgXcQ" --format mp4 --output ./videos
+ytsave https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 
-### Download a playlist
+```bash
+ytsave https://www.youtube.com/playlist?list=PL123456789
+```
+
+#### With Parameters
+```bash
+ytsave https://www.youtube.com/watch?v=dQw4w9WgXcQ --format mp4 --output ./videos 
+```
 
 ```bash
-ytsave "https://www.youtube.com/playlist?list=PL123456789" --format mp3 --output ./music
+ytsave https://www.youtube.com/playlist?list=PL123456789 --format mp3 --output ./music
 ```
 
 ### CLI Options
@@ -97,7 +108,7 @@ ytsave "https://www.youtube.com/playlist?list=PL123456789" --format mp3 --output
 * `--format <mp4|mp3>` → Output format (default: `mp4`)
 * `--output <path>` → Output directory (default: current folder)
 
----
+&nbsp;
 
 ## 📖 Library Usage
 
@@ -125,7 +136,7 @@ await downloadPlaylist("https://www.youtube.com/playlist?list=PL123456789", {
 });
 ```
 
----
+&nbsp;
 
 ## ⚙️ API
 
@@ -145,7 +156,7 @@ Downloads an entire YouTube playlist.
 * `options.format` *(string)*: `"mp4"` or `"mp3"`
 * `options.output` *(string)*: Output directory path
 
----
+&nbsp;
 
 ## ⚠️ Disclaimer
 
@@ -153,15 +164,3 @@ This project is for **educational purposes only**.
 Downloading videos or music from YouTube may violate **YouTube’s Terms of Service**.
 Use responsibly.
 
----
-
-## 📜 License
-
-MIT © 2025 \[Your Name]
-
-```
-
-Bunu direkt `README.md` dosyası olarak kaydedebilirsin ✅  
-
-👉 İstersen ben sana şimdi bununla uyumlu **`bin/ytsave.js` CLI dosyası** ve **`src/index.js` library dosyası** da yazayım mı?
-```
