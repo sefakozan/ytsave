@@ -54,8 +54,15 @@ export async function downloadVideo(url, options = {}) {
   if (format === "mp3") {
     args.push("-x", "--audio-format", "mp3");
   } else {
-  // Prefer best video + best audio and merge to mp4 container for highest quality
-  args.push("-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4");
+    // Prefer best separate mp4 video (mp4/h264) and m4a audio (aac) when possible to avoid
+    // selecting pre-merged mp4 formats (which can be lower quality). Fallback to best mp4
+    // single-file, then to best overall.
+    args.push(
+      "-f",
+      "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+      "--merge-output-format",
+      "mp4"
+    );
   }
 
   args.push(url);
@@ -81,8 +88,15 @@ export async function downloadPlaylist(url, options = {}) {
   if (format === "mp3") {
     args.push("-x", "--audio-format", "mp3");
   } else {
-  // Prefer best video + best audio and merge to mp4 container for highest quality
-  args.push("-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4");
+    // Prefer best separate mp4 video (mp4/h264) and m4a audio (aac) when possible to avoid
+    // selecting pre-merged mp4 formats (which can be lower quality). Fallback to best mp4
+    // single-file, then to best overall.
+    args.push(
+      "-f",
+      "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+      "--merge-output-format",
+      "mp4"
+    );
   }
 
   args.push(url);
