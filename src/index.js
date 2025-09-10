@@ -54,7 +54,8 @@ export async function downloadVideo(url, options = {}) {
   if (format === "mp3") {
     args.push("-x", "--audio-format", "mp3");
   } else {
-    args.push("-f", "mp4");
+  // Prefer best video + best audio and merge to mp4 container for highest quality
+  args.push("-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4");
   }
 
   args.push(url);
@@ -80,7 +81,8 @@ export async function downloadPlaylist(url, options = {}) {
   if (format === "mp3") {
     args.push("-x", "--audio-format", "mp3");
   } else {
-    args.push("-f", "mp4");
+  // Prefer best video + best audio and merge to mp4 container for highest quality
+  args.push("-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4");
   }
 
   args.push(url);
