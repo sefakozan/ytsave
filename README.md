@@ -39,6 +39,10 @@ npm install ytsave
 ytsave relies on the external tool `yt-dlp` to download media and (optionally) `ffmpeg` to merge separate video/audio streams. Install them on your system and ensure they're available on your PATH before running the CLI.
 
 Windows
+- Using winget:
+  ```powershell
+  winget install yt-dlp
+  ```
 - Using pip (if Python is installed):
   ```powershell
   pip install yt-dlp

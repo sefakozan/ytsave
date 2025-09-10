@@ -1,6 +1,6 @@
 {
   "name": "ytsave",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple and powerful Node.js tool to download YouTube **videos** and **playlists** with ease.  \r Works both as a **CLI tool** and as a **library**. 🎥🎶",
   "keywords": [
     "ytsave",
